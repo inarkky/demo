@@ -8,7 +8,7 @@ def compile_auth_assets(app):
     Environment.debug = False
     # Stylesheets Bundle
     less_bundle = Bundle(
-        "src/less/account.less",
+        "auth_bp/src/less/account.less",
         filters="less,cssmin",
         output="dist/css/account.css",
         extra={"rel": "stylesheet/less"},

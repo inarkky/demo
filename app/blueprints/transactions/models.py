@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey
-from ...models import User
+from ..auth.models import User
 from ... import db
 
 

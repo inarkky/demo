@@ -4,8 +4,8 @@ from flask import current_app as app
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_user
 
-from . import login_manager
-from .assets import compile_auth_assets
+from ... import login_manager
+from ...assets import compile_auth_assets
 from .forms import LoginForm, SignupForm
 from .models import User, db
 

@@ -46,3 +46,8 @@ def new():
 @login_required
 def list():
     return
+
+@transaction_bp.route("/transaction/stats", methods=["GET"])
+@login_required
+def stats():
+    return
