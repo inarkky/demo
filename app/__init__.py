@@ -27,10 +27,12 @@ def create_app():
         # Import blueprints
         from . import auth
         from .blueprints.main import main
+        from .blueprints.transactions import transaction
         from .assets import compile_static_assets, compile_auth_assets
 
         app.register_blueprint(main.main_bp)
         app.register_blueprint(auth.auth_bp)
+        app.register_blueprint(transaction.transaction_bp)
 
         # Create static asset bundles
         compile_static_assets(app)

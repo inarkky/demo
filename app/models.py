@@ -8,7 +8,7 @@ from . import db
 class User(UserMixin, db.Model):
     """Model for user accounts."""
 
-    __tablename__ = "flasksession-users"
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False, unique=False)
     email = db.Column(db.String(40), unique=True, nullable=False)
