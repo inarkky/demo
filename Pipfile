@@ -15,6 +15,9 @@ flask-login = "*"
 flask-session = "*"
 flask-sqlalchemy = "*"
 sqlalchemy = "*"
+lesscpy = "*"
+cssmin = "*"
+jsmin = "*"
 
 [dev-packages]
 
