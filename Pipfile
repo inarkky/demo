@@ -18,6 +18,8 @@ sqlalchemy = "*"
 lesscpy = "*"
 cssmin = "*"
 jsmin = "*"
+requests = "*"
+email-validator = "*"
 
 [dev-packages]
 

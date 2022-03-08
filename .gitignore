@@ -1,3 +1,4 @@
 .env
 app/static/dist
 app/static/.webassets-cache
+flask_session
