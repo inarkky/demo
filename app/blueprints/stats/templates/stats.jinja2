@@ -1,0 +1,32 @@
+{% extends "layout.jinja2" %}
+
+{% block pagestyles %}
+  <link href="{{ url_for('static', filename='dist/css/landing.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <h1>Transaction statistics by currency</h1>
+    {% for record in transactions_by_currency %}
+    <div class="grid-row-12">
+        <div class="grid-col-2"><span class="field-value">{{ record.currency }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.total }}</span></div>
+    </div>
+    <hr>
+    {% endfor %}
+  </div>
+
+    <br>
+    
+  <div class="container">
+  <h1>Transaction statistics by type</h1>
+    {% for record in transactions_by_currency %}
+    <div class="grid-row-12">
+        <div class="grid-col-2"><span class="field-value">{{ record.currency }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.total }}</span></div>
+    </div>
+    <hr>
+    {% endfor %}
+  </div>
+
+{% endblock %}

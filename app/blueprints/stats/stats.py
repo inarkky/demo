@@ -2,9 +2,8 @@ from flask import Blueprint
 from flask import current_app as app
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, logout_user
-from sqlalchemy import desc
 
-from ..transactions.models import Transaction, db
+from ..transactions.models import Transaction
 
 
 # Blueprint Configuration
@@ -18,6 +17,6 @@ stats_bp = Blueprint(
 def stats():
     return render_template(
         'stats.jinja2',
-        transactions=Transaction.query.order_by( desc(Transaction.date) ).all(),
+        transactions_by_currency = Transaction.get_sum_by_currency(),
         title="Statistics | Partner app"
     )

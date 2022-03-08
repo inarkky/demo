@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, func
 from ..auth.models import User
 from ... import db
 
@@ -17,6 +17,17 @@ class Transaction(db.Model):
 
     user = db.relationship('User', foreign_keys='Transaction.user_id')
 
+    @staticmethod
+    def get_sum_by_currency():
+        try:
+            return Transaction.query.with_entities(Transaction.currency, func.sum(Transaction.total).label('total')).group_by(Transaction.currency).all()
+        except:
+            print("No transaction records found")
+            pass
+
     def set_user_id(self, user_id):
         """Create hashed password."""
         self.user_id = user_id
+
+    def __repr__(self):
+        return '<Transaction %r>' % (self.date)
