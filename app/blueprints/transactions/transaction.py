@@ -51,8 +51,3 @@ def list():
         transactions=Transaction.query.order_by( desc(Transaction.date) ).all(),
         title="Transactions | Partner app"
     )
-
-@transaction_bp.route("/transaction/stats", methods=["GET"])
-@login_required
-def stats():
-    return

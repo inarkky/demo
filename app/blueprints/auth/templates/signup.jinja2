@@ -2,14 +2,13 @@
 
 {% block pagestyles %}
   <link href="{{ url_for('static', filename='dist/css/account.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='dist/css/landing.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
-{% block content %}
-  <div class="form-wrapper">
 
-    <div class="logo">
-      <img src="{{ url_for('static', filename='dist/img/logo.png') }}" alt="logo"/>
-    </div>
+{% block content %}
+  <div class="form-wrapper container">
+
 
     {% for message in get_flashed_messages() %}
       <div class="alert alert-warning">
