@@ -28,5 +28,5 @@ class NewTransaction(FlaskForm):
         ]
     )
     total = StringField("Total", validators=[DataRequired()])
-    note = total = StringField("Total", validators=[DataRequired()])
+    note = StringField("Note", validators=[DataRequired()])
     submit = SubmitField("Transfer")

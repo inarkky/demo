@@ -16,3 +16,7 @@ class Transaction(db.Model):
     note = db.Column(db.String(255), nullable=False, unique=False)
 
     user = db.relationship('User', foreign_keys='Transaction.user_id')
+
+    def set_user_id(self, user_id):
+        """Create hashed password."""
+        self.user_id = user_id

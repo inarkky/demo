@@ -1,7 +1,7 @@
 {% if current_user.is_authenticated %}
 <aside class="sidebar">
     <a href="{{ url_for('main_bp.home') }}"> <section class="menu_item">Dashboard</section> </a>
-    <a href="{{ url_for('main_bp.home') }}"> <section class="menu_item">New transaction</section> </a>
-    <a href="{{ url_for('main_bp.home') }}"> <section class="menu_item">All transactions</section> </a>
+    <a href="{{ url_for('transaction_bp.new') }}"> <section class="menu_item">New transaction</section> </a>
+    <a href="{{ url_for('transaction_bp.list') }}"> <section class="menu_item">All transactions</section> </a>
 </aside>
 {% endif %}

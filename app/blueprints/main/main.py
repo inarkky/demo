@@ -28,18 +28,6 @@ def home():
     )
 
 
-@main_bp.route("/session", methods=["GET"])
-@login_required
-def session_view():
-    """Display session variable value."""
-    return render_template(
-        "session.jinja2",
-        title="Session | Partner app",
-        template="dashboard-template",
-        session_variable=str(session["redis_test"]),
-    )
-
-
 @main_bp.route("/logout")
 @login_required
 def logout():
