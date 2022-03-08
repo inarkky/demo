@@ -33,7 +33,7 @@ def compile_main_assets(app):
         'src/less/*.less',
         'main_bp/homepage.less',
         filters="less,cssmin",
-        output="dist/css/dashboard.css",
+        output="dist/css/landing.css",
         extra={"rel": "stylesheet/less"},
     )
     # Register assets
