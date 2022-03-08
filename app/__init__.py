@@ -15,13 +15,13 @@ def create_app():
 
     with app.app_context():
         # Import parts of our flask_assets_tutorial
-        from .blueprints.currency import currency_routes
-        # from .assets import compile_static_assets
+        from .blueprints.main import main_routes
+        from .assets import compile_static_assets
 
         # Register Blueprints
-        app.register_blueprint(currency_routes.currency_bp)
+        app.register_blueprint(main_routes.main_bp)
 
         # Compile static assets
-        # compile_static_assets(assets)
+        compile_static_assets(assets)
 
         return app
