@@ -11,7 +11,19 @@
 
 <body class="{{template}}">
 
-  {% block content %}{% endblock %}
+  {% include "navigation.jinja2" %}
+
+  <div class="grid-row-12">
+    <div class="grid-col-2">
+      {% include "sidebar.jinja2" %}
+    </div>
+    <div class="grid-col-9">
+      {% block content %}{% endblock %}
+    </div>  
+  </div>
+
+  
+
 
   <!-- Scripts -->
   <script src="{{ url_for('static', filename='dist/js/main.min.js') }}"></script>

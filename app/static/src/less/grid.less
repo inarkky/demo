@@ -1,0 +1,75 @@
+.clearfix
+{
+	&:before,
+	&:after
+	{
+		visibility: hidden;
+		display: table;
+		content: '';
+	}
+	&:after
+	{
+		clear: both;
+	}
+}
+
+.float-left {
+  float: left;
+}
+
+.margin-horizontal ( @value: auto )
+{
+  margin-left: @value;
+  margin-right: @value;
+}
+
+.padding-horizontal ( @value: 0 )
+{
+  padding-left: @value;
+  padding-right: @value;
+}
+
+.grid-loop ( @tax: 0 ) when ( @tax > 0 )
+{
+	@space: percentage( (1 / @tax) );
+
+	.grid-row-@{tax}
+	{
+		.grid-col
+		{
+			width: @space
+		}
+
+		.col-loop ( @tax, @space );
+	}
+
+	.grid-loop( @tax - 1 );
+}
+
+.col-loop ( @tax: 0, @space: 1 ) when ( @tax > 0 )
+{
+	.grid-col-@{tax}
+	{
+		width: @tax * @space;
+	}
+
+	.col-loop ( @tax - 1, @space );
+}
+
+@grid-unit: 16px;
+
+* {
+  box-sizing: border-box;
+}
+
+[class*="grid-row"]
+{
+	.clearfix;
+	// .margin-horizontal( -@grid-unit );
+
+	& > [class*="grid-col"]
+	{
+		.float-left;
+		.padding-horizontal( @grid-unit / 2 );
+	}
+}
