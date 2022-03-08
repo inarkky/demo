@@ -14,10 +14,16 @@
   {% include "navigation.jinja2" %}
 
   <div class="grid-row-12">
+    {% if current_user.is_authenticated %}
     <div class="grid-col-2">
       {% include "sidebar.jinja2" %}
     </div>
-    <div class="grid-col-9">
+    {% endif %}
+    {% if current_user.is_authenticated %}
+    <div class="grid-col-7">
+    {% else %}
+    <div class="grid-col-12">
+    {% endif %}
       {% block content %}{% endblock %}
     </div>  
   </div>
