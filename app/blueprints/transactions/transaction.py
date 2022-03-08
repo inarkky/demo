@@ -26,7 +26,7 @@ def new():
         transaction = Transaction(
             date=form.date.data, 
             type=form.type.data,
-            currency=form.currency.data,
+            currency=form.currency.data.upper(),
             total=form.total.data,
             note=form.note.data
         )
