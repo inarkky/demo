@@ -25,7 +25,6 @@ def create_app():
 
     with app.app_context():
         # Import blueprints
-        #from . import auth
         from .blueprints.auth import auth
         from .blueprints.main import main
         from .blueprints.transactions import transaction

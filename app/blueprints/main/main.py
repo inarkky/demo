@@ -19,7 +19,6 @@ main_bp = Blueprint(
 @login_required
 def home():
     """Homepage route."""
-    session["redis_test"] = "This is a session variable."
     return render_template(
         'index.jinja2',
         title='Home | Partner app',

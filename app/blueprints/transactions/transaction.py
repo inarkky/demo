@@ -2,6 +2,7 @@ from flask import Blueprint
 from flask import current_app as app
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, logout_user
+from sqlalchemy import desc
 
 from .forms import NewTransaction
 from .models import Transaction, db
@@ -37,7 +38,7 @@ def new():
     return render_template(
         "new.jinja2",
         form=form,
-        title="New | Partner app.",
+        title="New | Partner app",
         template="newtransaction-page",
         body="New transaction.",
     )
@@ -45,7 +46,11 @@ def new():
 @transaction_bp.route("/transaction/list", methods=["GET"])
 @login_required
 def list():
-    return
+    return render_template(
+        'list.jinja2',
+        transactions=Transaction.query.order_by( desc(Transaction.date) ).all(),
+        title="Transactions | Partner app"
+    )
 
 @transaction_bp.route("/transaction/stats", methods=["GET"])
 @login_required

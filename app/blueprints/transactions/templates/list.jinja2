@@ -1,0 +1,32 @@
+{% extends "layout.jinja2" %}
+
+{% block pagestyles %}
+  <link href="{{ url_for('static', filename='dist/css/landing.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+sasa
+  <div class="container">
+  <h1>Transaction records</h1>
+    <div class="grid-row-12">
+        <div class="grid-col-2"><span class="field-name">Date</span></div>
+        <div class="grid-col-2"><span class="field-name">Author</span></div>
+        <div class="grid-col-2"><span class="field-name">Type</span></div>
+        <div class="grid-col-2"><span class="field-name">Amount</span></div>
+        <div class="grid-col-2"><span class="field-name">Currency</span></div>
+        <div class="grid-col-2"><span class="field-name">Note</span></div>
+    </div>
+    {% for record in transactions %}
+    <div class="grid-row-12">
+        <div class="grid-col-2"><span class="field-value">{{ record.date.strftime('%Y-%m-%d') }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.user.name }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.type }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.total }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.currency }}</span></div>
+        <div class="grid-col-2"><span class="field-value">{{ record.note }}</span></div>
+    </div>
+    <hr>
+    {% endfor %}
+  </div>
+
+{% endblock %}

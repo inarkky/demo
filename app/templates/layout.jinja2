@@ -13,6 +13,7 @@
 
   {% include "navigation.jinja2" %}
 
+
   <div class="grid-row-12">
     {% if current_user.is_authenticated %}
     <div class="grid-col-2">
@@ -27,8 +28,6 @@
       {% block content %}{% endblock %}
     </div>  
   </div>
-
-  
 
 
   <!-- Scripts -->
