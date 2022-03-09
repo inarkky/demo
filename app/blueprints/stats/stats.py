@@ -15,8 +15,13 @@ stats_bp = Blueprint(
 @stats_bp.route("/stats", methods=["GET"])
 @login_required
 def stats():
+    by_currency = Transaction.get_sum_by_currency()
+    by_type = Transaction.get_sum_by_type()
+    all_types = Transaction.get_all_types()
     return render_template(
         'stats.jinja2',
-        transactions_by_currency = Transaction.get_sum_by_currency(),
+        transactions_by_currency = by_currency,
+        transactions_by_type = by_type,
+        types = all_types,
         title="Statistics | Partner app"
     )

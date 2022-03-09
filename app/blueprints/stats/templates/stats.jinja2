@@ -17,15 +17,20 @@
   </div>
 
     <br>
-    
+
   <div class="container">
   <h1>Transaction statistics by type</h1>
-    {% for record in transactions_by_currency %}
-    <div class="grid-row-12">
-        <div class="grid-col-2"><span class="field-value">{{ record.currency }}</span></div>
-        <div class="grid-col-2"><span class="field-value">{{ record.total }}</span></div>
-    </div>
-    <hr>
+    {% for type in types %}
+        <div class="grid-col-12" ><span class="field-value"><b>{{ type.type }}</b></span></div>
+        {% for record in transactions_by_type %}
+            {% if type.type == record.type %}
+                <div class="grid-row-12">
+                    <div class="grid-col-2"><span class="field-value">{{ record.currency }}</span></div>
+                    <div class="grid-col-2"><span class="field-value">{{ record.total }}</span></div>
+                </div>
+            {% endif %} 
+        {% endfor %}
+        <hr>
     {% endfor %}
   </div>
 

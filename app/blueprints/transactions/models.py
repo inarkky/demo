@@ -20,7 +20,50 @@ class Transaction(db.Model):
     @staticmethod
     def get_sum_by_currency():
         try:
-            return Transaction.query.with_entities(Transaction.currency, func.sum(Transaction.total).label('total')).group_by(Transaction.currency).all()
+            return Transaction.query.with_entities(
+                Transaction.currency, 
+                func.sum(Transaction.total).label('total')
+            ).group_by(Transaction.currency).all()
+        except:
+            print("No transaction records found")
+            pass
+    
+    @staticmethod
+    def get_sum_by_type():
+        try:
+            return Transaction.query.with_entities(
+                Transaction.currency, 
+                Transaction.type,
+                func.sum(Transaction.total).label('total')
+            ).group_by(
+                Transaction.type,
+                Transaction.currency
+            ).all()
+        except:
+            print("No transaction records found")
+            pass
+    
+    @staticmethod
+    def get_all_types():
+        try:
+            return Transaction.query.with_entities(
+                Transaction.type
+            ).group_by(
+                Transaction.type
+            ).all()
+        except:
+            print("No transaction records found")
+            pass
+
+    @staticmethod
+    def get_all_balances():
+        try:
+            return Transaction.query.with_entities(
+                Transaction.currency,
+                func.sum(Transaction.total).label('total')
+            ).group_by(
+                Transaction.currency
+            ).all()
         except:
             print("No transaction records found")
             pass
